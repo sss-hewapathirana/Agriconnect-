@@ -1,3 +1,6 @@
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
 import { clerkMiddleware } from "@clerk/express";
 import userRoutes from "./routes/users.js";
 import productRoutes from "./routes/products.js";
@@ -21,6 +24,10 @@ app.use(clerkMiddleware());
 // ─── Health check ─────────────────────────────────────────────────────────────
 app.get("/health", (_req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });
+});
+
+app.get("/", (_req, res) => {
+  res.send("<h1>Agriconnect API</h1><p>The server is running correctly.</p>");
 });
 
 // ─── Routes ───────────────────────────────────────────────────────────────────
