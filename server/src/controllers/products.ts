@@ -56,7 +56,7 @@ export async function listProducts(req: Request, res: Response) {
 // Products for a specific farmer
 export async function getFarmerProductsHandler(req: Request, res: Response) {
   try {
-    const { farmerId } = req.params;
+    const farmerId = req.params.farmerId as string;
     const products = await getFarmerProducts(farmerId);
     res.json({ products });
   } catch (err) {
@@ -69,8 +69,8 @@ export async function getFarmerProductsHandler(req: Request, res: Response) {
 // Farmer only — can only update their own products
 export async function updateProductHandler(req: Request, res: Response) {
   try {
+    const id = req.params.id as string;
     const dbUser = getDbUser(req);
-    const { id } = req.params;
 
     // Verify ownership
     const existing = await getProductById(id);
@@ -103,8 +103,8 @@ export async function updateProductHandler(req: Request, res: Response) {
 // Farmer only — can only delete their own products
 export async function deleteProductHandler(req: Request, res: Response) {
   try {
+    const id = req.params.id as string;
     const dbUser = getDbUser(req);
-    const { id } = req.params;
 
     const existing = await getProductById(id);
     if (!existing) return res.status(404).json({ error: "Product not found" });

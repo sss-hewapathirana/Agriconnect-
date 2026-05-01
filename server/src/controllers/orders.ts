@@ -54,8 +54,8 @@ export async function listOrders(req: Request, res: Response) {
 // ─── GET /api/orders/:id ──────────────────────────────────────────────────────
 export async function getOrderHandler(req: Request, res: Response) {
   try {
+    const id = req.params.id as string;
     const dbUser = getDbUser(req);
-    const { id } = req.params;
 
     const order = await getOrderById(id);
     if (!order) return res.status(404).json({ error: "Order not found" });
@@ -76,8 +76,8 @@ export async function getOrderHandler(req: Request, res: Response) {
 // Farmer only — accept or reject an incoming order
 export async function updateOrderStatus(req: Request, res: Response) {
   try {
+    const id = req.params.id as string;
     const dbUser = getDbUser(req);
-    const { id } = req.params;
     const { status } = req.body;
 
     const existing = await getOrderById(id);

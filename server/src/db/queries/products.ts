@@ -1,5 +1,5 @@
-import { db } from "../index";
-import { products, productCategoryEnum } from "../schema/products";
+import { db } from "../index.js";
+import { products, productCategoryEnum } from "../schema/products.js";
 import { eq, and, ilike, sql } from "drizzle-orm";
 
 // ─── Types ────────────────────────────────────────────────────────────────────

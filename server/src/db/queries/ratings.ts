@@ -1,5 +1,5 @@
-import { db } from "../index";
-import { ratings } from "../schema/ratings";
+import { db } from "../index.js";
+import { ratings } from "../schema/ratings.js";
 import { eq, and, avg, count, sql } from "drizzle-orm";
 
 // ─── Types ────────────────────────────────────────────────────────────────────

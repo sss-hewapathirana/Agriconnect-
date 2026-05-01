@@ -44,7 +44,7 @@ export async function createReview(req: Request, res: Response) {
 // Public — get all reviews + average rating for a farmer
 export async function getFarmerReviews(req: Request, res: Response) {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
 
     const farmer = await getFarmerProfile(id);
     if (!farmer || farmer.role !== "farmer") {
@@ -73,7 +73,7 @@ export async function getFarmerReviews(req: Request, res: Response) {
 export async function getMyReviewForFarmer(req: Request, res: Response) {
   try {
     const dbUser = getDbUser(req);
-    const { id: farmerId } = req.params;
+    const farmerId = req.params.id as string;
 
     const rating = await getSellerRatingForFarmer(dbUser.id, farmerId);
     res.json({ rating: rating ?? null });
