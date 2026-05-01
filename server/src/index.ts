@@ -1,6 +1,9 @@
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
+import { clerkMiddleware } from "@clerk/express";
+import userRoutes from "./routes/users.js";
+import productRoutes from "./routes/products.js";
+import orderRoutes from "./routes/orders.js";
+import reviewRoutes from "./routes/reviews.js";
+import webhookRoutes from "./routes/webhooks.js";
 
 // Load env before anything else
 dotenv.config();
@@ -10,19 +13,22 @@ const PORT = process.env.PORT ?? 5000;
 
 // ─── Middleware ───────────────────────────────────────────────────────────────
 app.use(cors());
+// Webhooks need raw body for signature verification, so we mount them BEFORE express.json()
+app.use("/api/webhooks", webhookRoutes);
 app.use(express.json());
+app.use(clerkMiddleware());
 
 // ─── Health check ─────────────────────────────────────────────────────────────
 app.get("/health", (_req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });
 });
 
-// ─── TODO: Mount routes here as you build them ────────────────────────────────
-// app.use("/api/auth", authRoutes);
-// app.use("/api/users", userRoutes);
-// app.use("/api/products", productRoutes);
-// app.use("/api/orders", orderRoutes);
-// app.use("/api/ratings", ratingRoutes);
+// ─── Routes ───────────────────────────────────────────────────────────────────
+app.use("/api/users", userRoutes);
+app.use("/api/products", productRoutes);
+app.use("/api/orders", orderRoutes);
+app.use("/api/reviews", reviewRoutes);
+
 
 // ─── Global error handler ─────────────────────────────────────────────────────
 app.use(

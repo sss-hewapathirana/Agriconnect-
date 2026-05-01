@@ -13,13 +13,15 @@ import { relations } from "drizzle-orm";
 export const userRoleEnum = pgEnum("user_role", ["farmer", "seller"]);
 
 // ─── Users Table ──────────────────────────────────────────────────────────────
+// Clerk owns credentials. We store profile + role data linked by clerkId.
 export const users = pgTable("users", {
   id: uuid("id").primaryKey().defaultRandom(),
+  clerkId: varchar("clerk_id", { length: 100 }).notNull().unique(),
+  email: varchar("email", { length: 255 }).notNull().unique(),
   name: varchar("name", { length: 100 }).notNull(),
-  phone: varchar("phone", { length: 20 }).notNull().unique(),
-  passwordHash: text("password_hash").notNull(),
+  phone: varchar("phone", { length: 20 }),
   role: userRoleEnum("role").notNull(),
-  location: varchar("location", { length: 200 }).notNull(),
+  location: varchar("location", { length: 200 }),
   // Farmer-only extended profile fields (nullable for sellers)
   bio: text("bio"),
   avatarUrl: text("avatar_url"),
