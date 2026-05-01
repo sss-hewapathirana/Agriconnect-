@@ -1,0 +1,470 @@
+{
+  "info": {
+    "_postman_id": "225f7110-222c-45aa-9cb5-c7b72563a31a",
+    "name": "Agriconnect",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52356358",
+    "_collection_link": "https://go.postman.co/collection/52356358-225f7110-222c-45aa-9cb5-c7b72563a31a?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "General and Public",
+      "item": [
+        {
+          "name": "Base url",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/health",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "health"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Farmers Feed",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/users/farmers",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "users",
+                "farmers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Products Feed",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/products",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search Products",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User & Onboarding",
+      "item": [
+        {
+          "name": "Onboarding (Post-Signup)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"clerkId\": \"test_user_123\",\r\n  \"name\": \"Kamal Perera\",\r\n  \"role\": \"farmer\",\r\n  \"phone\": \"0771234567\",\r\n  \"location\": \"Matara, Sri Lanka\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get My Profile",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/users/me?testClerkId=test_user_123",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "users",
+                "me"
+              ],
+              "query": [
+                {
+                  "key": "testClerkId",
+                  "value": "test_user_123"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update my profile",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Kamal Updated\",\r\n  \"bio\": \"Matara Farmer\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/users/me?testClerkId=test_user_123",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "users",
+                "me"
+              ],
+              "query": [
+                {
+                  "key": "testClerkId",
+                  "value": "test_user_123"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Products(farmer side)",
+      "item": [
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Fresh Organic Carrots\",\r\n  \"category\": \"vegetables\",\r\n  \"description\": \"Harvested this morning, no chemicals used.\",\r\n  \"pricePerUnit\": 250.00,\r\n  \"unit\": \"kg\",\r\n  \"availableQuantity\": 50\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/products?testClerkId=test_user_123",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "testClerkId",
+                  "value": "test_user_123"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"pricePerUnit\": 240.00,\r\n  \"availableQuantity\": 45\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/products/b60e269e-372d-4adc-a748-3bf1b94d9ef6?testClerkId=test_user_123",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "products",
+                "b60e269e-372d-4adc-a748-3bf1b94d9ef6"
+              ],
+              "query": [
+                {
+                  "key": "testClerkId",
+                  "value": "test_user_123"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Orders (Seller Side)",
+      "item": [
+        {
+          "name": "Place Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"farmerId\": \"d1918222-90b9-481a-8ae9-1aefb3868cce\",\r\n  \"productName\": \"Fresh Organic Carrots\",\r\n  \"quantity\": 10,\r\n  \"unit\": \"kg\",\r\n  \"deadline\": \"2024-05-15\",\r\n  \"notes\": \"Please deliver before 10 AM.\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/orders?testClerkId=test_seller_123",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "orders"
+              ],
+              "query": [
+                {
+                  "key": "testClerkId",
+                  "value": "test_seller_123"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Accept/Reject Order",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"status\": \"accepted\" \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/orders/:orderId/status?testClerkId=test_user_123",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "orders",
+                ":orderId",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "testClerkId",
+                  "value": "test_user_123"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "orderId",
+                  "value": "40dd164f-f84f-4bf0-96c3-ac147d7014a3"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reviews",
+      "item": [
+        {
+          "name": "Submit Review",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"farmerId\": \"d1918222-90b9-481a-8ae9-1aefb3868cce\",\r\n  \"stars\": 5,\r\n  \"comment\": \"Excellent quality vegetables and very punctual!\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/reviews?testClerkId=test_seller_123",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "reviews"
+              ],
+              "query": [
+                {
+                  "key": "testClerkId",
+                  "value": "test_seller_123"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Farmer Reviews",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/users/farmers/:farmerId/reviews",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "users",
+                "farmers",
+                ":farmerId",
+                "reviews"
+              ],
+              "variable": [
+                {
+                  "key": "farmerId",
+                  "value": "d1918222-90b9-481a-8ae9-1aefb3868cce"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
