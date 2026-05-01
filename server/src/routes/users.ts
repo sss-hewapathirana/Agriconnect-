@@ -15,6 +15,10 @@ import { getFarmerReviews } from "../controllers/ratings.js";
 
 const router = Router();
 
+// ─── Auth + DB user required ──────────────────────────────────────────────────
+router.get("/me", requireAuth(), requireDbUser, getMe);
+router.patch("/me", requireAuth(), requireDbUser, validateBody(updateUserSchema), updateMe);
+
 // ─── Public routes ────────────────────────────────────────────────────────────
 router.get("/farmers", listFarmers);
 router.get("/farmers/:id", getFarmer);
@@ -24,9 +28,5 @@ router.get("/:id", getUserById);
 // ─── Auth required ────────────────────────────────────────────────────────────
 // Onboarding — register role after Clerk signup
 router.post("/", requireAuth(), validateBody(createUserSchema), registerUser);
-
-// ─── Auth + DB user required ──────────────────────────────────────────────────
-router.get("/me", requireAuth(), requireDbUser, getMe);
-router.patch("/me", requireAuth(), requireDbUser, validateBody(updateUserSchema), updateMe);
 
 export default router;
