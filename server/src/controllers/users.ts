@@ -27,7 +27,6 @@ export async function registerUser(req: Request, res: Response) {
 
     // Email is provided by Clerk — get it from the session claims
     const sessionClaims = getAuth(req);
-    // We'll use the clerkId for now; email will be synced via webhook
     const email = (sessionClaims as any)?.sessionClaims?.email as string | undefined;
 
     const user = await createUser({
@@ -49,7 +48,7 @@ export async function registerUser(req: Request, res: Response) {
 // ─── GET /api/users/:id ───────────────────────────────────────────────────────
 export async function getUserById(req: Request, res: Response) {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const user = await findUserById(id);
 
     if (!user) return res.status(404).json({ error: "User not found" });
@@ -103,7 +102,7 @@ export async function listFarmers(_req: Request, res: Response) {
 // ─── GET /api/farmers/:id ─────────────────────────────────────────────────────
 export async function getFarmer(req: Request, res: Response) {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const farmer = await getFarmerProfile(id);
 
     if (!farmer || farmer.role !== "farmer") {

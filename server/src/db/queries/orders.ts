@@ -1,5 +1,5 @@
-import { db } from "../index";
-import { orders } from "../schema/orders";
+import { db } from "../index.js";
+import { orders } from "../schema/orders.js";
 import { eq, and } from "drizzle-orm";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
