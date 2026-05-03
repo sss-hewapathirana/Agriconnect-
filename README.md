@@ -172,7 +172,10 @@ erDiagram
 
 ---
 
-## 🛣️ API Endpoints (Summary)
+## 🛣️ API Endpoints & Documentation
+
+Detailed API documentation is available via Postman:
+👉 **[Agriconnect API Documentation](https://documenter.getpostman.com/view/52356358/2sBXqKnz7k)**
 
 ### 👤 Users
 - `GET /api/users/profile` - Get current user profile
@@ -202,6 +205,12 @@ erDiagram
 - 💬 **In-app Chat**: Direct communication between buyers and sellers.
 - 🌍 **Localization**: Support for Sinhala and Tamil languages.
 - 📦 **Offline Support**: Optimized for rural areas with limited connectivity.
+
+---
+
+## 👥 Development Team
+- **Backend Developer**: Omisha Pasandul Wickramaarachchi
+- **Frontend Developer**: Suvindu Supun Hewapathirana
 
 ---
 
