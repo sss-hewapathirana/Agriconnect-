@@ -11,6 +11,7 @@ import {
   createProductHandler,
   listProducts,
   getFarmerProductsHandler,
+  getMyProductsHandler,
   updateProductHandler,
   deleteProductHandler,
 } from "../controllers/products.js";
@@ -20,6 +21,9 @@ const router = Router();
 // ─── Public ───────────────────────────────────────────────────────────────────
 router.get("/", validateQuery(searchProductsSchema), listProducts);
 router.get("/farmer/:farmerId", getFarmerProductsHandler);
+
+// ─── Auth required ────────────────────────────────────────────────────────────
+router.get("/mine", requireAuth(), requireDbUser, requireRole("farmer"), getMyProductsHandler);
 
 // ─── Farmer only ──────────────────────────────────────────────────────────────
 router.post(
