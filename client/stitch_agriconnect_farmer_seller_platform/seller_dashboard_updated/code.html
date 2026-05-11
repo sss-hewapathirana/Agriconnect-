@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agriconnect Seller Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#fdf7ff",
+                    "on-tertiary-fixed": "#241a00",
+                    "surface-container-highest": "#e6e0e9",
+                    "primary-fixed": "#e9ddff",
+                    "surface-variant": "#e6e0e9",
+                    "on-tertiary-container": "#503d00",
+                    "surface-dim": "#ded8e0",
+                    "outline-variant": "#cbc4d2",
+                    "outline": "#7a7582",
+                    "on-surface-variant": "#494551",
+                    "on-tertiary-fixed-variant": "#594400",
+                    "background": "#fdf7ff",
+                    "on-primary-fixed-variant": "#4f378a",
+                    "on-secondary-container": "#645a7d",
+                    "error": "#ba1a1a",
+                    "primary-container": "#6750a4",
+                    "on-secondary-fixed": "#1f1635",
+                    "secondary": "#63597c",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffdf93",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#e7c365",
+                    "inverse-surface": "#322f35",
+                    "on-surface": "#1d1b20",
+                    "on-error-container": "#93000a",
+                    "primary": "#4f378a",
+                    "on-secondary-fixed-variant": "#4b4263",
+                    "inverse-on-surface": "#f5eff7",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#e0d2ff",
+                    "inverse-primary": "#cfbcff",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#cdc0e9",
+                    "tertiary-container": "#c9a74d",
+                    "tertiary": "#765b00",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#ece6ee",
+                    "on-primary-fixed": "#22005d",
+                    "surface": "#fdf7ff",
+                    "surface-container": "#f2ecf4",
+                    "secondary-fixed": "#e9ddff",
+                    "on-background": "#1d1b20",
+                    "primary-fixed-dim": "#cfbcff",
+                    "secondary-container": "#e1d4fd",
+                    "surface-container-low": "#f8f2fa",
+                    "surface-tint": "#6750a4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "8px",
+                    "container-max": "1280px",
+                    "xs": "4px",
+                    "xl": "48px",
+                    "md": "16px",
+                    "unit": "4px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Inter"],
+                    "body-base": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "display-lg": ["Manrope"],
+                    "headline-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-base": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "display-lg": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-base">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-4 h-16 fixed top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<span class="text-xl font-extrabold text-emerald-900 dark:text-emerald-500 uppercase tracking-wider font-display-lg">Agriconnect</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-caps text-[10px]">SELLER</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-6 mr-6">
+<a class="text-emerald-700 dark:text-emerald-400 font-bold font-manrope" href="#">Home</a>
+<a class="text-slate-500 dark:text-slate-400 font-manrope" href="#">Orders</a>
+<a class="text-slate-500 dark:text-slate-400 font-manrope" href="#">Profile</a>
+</div>
+<button class="material-symbols-outlined text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 p-2 rounded-full transition-transform active:scale-95">notifications</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a business professional in their late 30s with a warm, confident expression. The lighting is bright and natural, reflecting a clean corporate aesthetic. The background is a soft-focus modern office environment with hints of greenery, maintaining the minimal and grounded brand identity of the platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4rMP2-OjhbVwbI7zjiw0CSDxUxFK3vzuPR1Zp2xEGQOUx0NRrqBbf48YX7nThV_Z8wYci3zODV8uYVbtjGm78mkgj4eYyQxsvZwoiMLZvKGSAda5ZSpuVKZiq-D_QRfURFTjg5YI2tyAqEFBME8yKqIhhlY7mHNr-GZNhKKZOpHlkSZgybYTtHn0IrLUedbC9Kv0UjNdLZ0kG1V6BcAPYgTCS7dOK0ecbwc26dYirB01ZVw58os_zvRYWTkt95CnN7uEAp5Qtw4iQ"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-20 px-4 md:px-xl max-w-container-max mx-auto">
+<!-- Hero Search Section -->
+<section class="mb-lg">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-md">Sourcing Network</h1>
+<div class="relative max-w-2xl">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-xl border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all font-body-base shadow-sm" placeholder="Search by product or location..." type="text"/>
+</div>
+</section>
+<!-- Filters Horizontal -->
+<section class="mb-lg overflow-x-auto whitespace-nowrap pb-2 flex gap-3 no-scrollbar">
+<button class="px-5 py-2 rounded-full bg-primary text-on-primary font-label-caps text-label-caps active:scale-95 transition-all">All Farmers</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-highest transition-all">Fruits</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-highest transition-all">Vegetables</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-highest transition-all">Animal Products</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-highest transition-all">Dairy</button>
+</section>
+<!-- Bento Grid / Feed -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Farmer Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-md hover:shadow-lg transition-shadow duration-300">
+<div class="flex items-start justify-between">
+<div class="flex gap-md">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-emerald-50 relative">
+<img alt="Samuel Mwangi" class="w-full h-full object-cover" data-alt="A portrait of a Kenyan male farmer named Samuel, wearing a traditional hat and a clean button-down shirt. He is standing in a lush, sun-drenched vegetable field during the golden hour. The image has a professional, high-contrast look with a grounded and reliable atmosphere, reflecting the premium agricultural platform aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOLv1S8F2f97Nvz4FVLERzDXujtfDgxw70iw-I6WJfpHxqRqeT-v3IYmZu6QMyj6nMsItECuMtG6COgEwYZF4VPlg_2NacCofjcVusV3iJmwDdojtGVMnPRfBdeZeqLPFL1HM5FQ8bBoQP4xrMUNrLWUidL25aizoXHAwefcMBwi4bumsQHyvA0XyY-kCJUSJhCrJ3qkGWXxeMKpeOOzy9xCWSH2bTBo93BUjx0GjMCNysI_hdHfHPH83ImnNzVm6M7Tr9g6hJpagF"/>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h3 class="font-headline-md text-body-base font-bold text-on-surface">Samuel Mwangi</h3>
+<div class="flex items-center justify-center bg-blue-600 rounded-full w-4 h-4" title="Verified">
+<span class="material-symbols-outlined text-[10px] text-white" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 font-label-caps text-[10px] uppercase">VERIFIED FARMER</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm">
+<span class="material-symbols-outlined text-[18px] text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-semibold">4.9</span>
+<span class="text-outline">(128 reviews)</span>
+<span class="mx-1">•</span>
+<span class="text-emerald-700 font-medium">98% Fulfillment</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm">
+<span class="material-symbols-outlined text-[18px] text-outline">location_on</span>
+<span>Nyeri Highlands, Central Region</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-sm rounded-lg">
+<p class="font-label-caps text-[10px] text-outline mb-1 uppercase tracking-wider">Main Products</p>
+<p class="font-body-sm text-on-surface font-medium">Potatoes, Capsicum, Carrots</p>
+</div>
+<button class="mt-auto w-full py-2.5 rounded-lg bg-primary text-on-primary font-label-caps text-label-caps hover:bg-primary-container hover:text-on-primary-container transition-colors active:scale-[0.98]">View Profile</button>
+</div>
+<!-- Farmer Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-md hover:shadow-lg transition-shadow duration-300">
+<div class="flex items-start justify-between">
+<div class="flex gap-md">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-emerald-50">
+<img alt="Sarah Juma" class="w-full h-full object-cover" data-alt="A portrait of a female farmer smiling warmly, set against a backdrop of a modern greenhouse with rows of vibrant green seedlings. The lighting is soft and diffuse, creating a serene and professional mood. The color palette is dominated by fresh greens and clean whites, consistent with a high-end agricultural dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_HZIQnBpNIymq2Qa1yQdzOgfJnZ1MC5d4L1-Ju8vd9d89SbD3VKK6_y23vhEAtCodfbp5UBJH3DYiHw2q5jFRnsCbz_6T5ZdjZV6daOhQAMWVlYzywyo4n_j21lZO0LmsAst1gRo3pVJx56FVompUAuEz57nwgzMdqzhIW93CKsWcOADal6sFQE49orpxNPw4f69LedFse67COWlvaRB6srYYjC1OzKVLdD5za4_On1ckn6SqJ3dNvguwGHQRbL5w4Bzv00K6-At_"/>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h3 class="font-headline-md text-body-base font-bold text-on-surface">Sarah Juma</h3>
+<div class="flex items-center justify-center bg-blue-600 rounded-full w-4 h-4" title="Verified">
+<span class="material-symbols-outlined text-[10px] text-white" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 font-label-caps text-[10px] uppercase">VERIFIED FARMER</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm">
+<span class="material-symbols-outlined text-[18px] text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-semibold">4.7</span>
+<span class="text-outline">(89 reviews)</span>
+<span class="mx-1">•</span>
+<span class="text-emerald-700 font-medium">100% Fulfillment</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm">
+<span class="material-symbols-outlined text-[18px] text-outline">location_on</span>
+<span>Eldoret North, Rift Valley</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-sm rounded-lg">
+<p class="font-label-caps text-[10px] text-outline mb-1 uppercase tracking-wider">Main Products</p>
+<p class="font-body-sm text-on-surface font-medium">Maize, Wheat, Soybeans</p>
+</div>
+<button class="mt-auto w-full py-2.5 rounded-lg bg-primary text-on-primary font-label-caps text-label-caps hover:bg-primary-container hover:text-on-primary-container transition-colors active:scale-[0.98]">View Profile</button>
+</div>
+<!-- Farmer Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-md hover:shadow-lg transition-shadow duration-300">
+<div class="flex items-start justify-between">
+<div class="flex gap-md">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-emerald-50">
+<img alt="Josephat Korir" class="w-full h-full object-cover" data-alt="A portrait of an older farmer with a weathered, friendly face, standing in front of a clean, white-walled dairy facility. The morning sun casts long, soft shadows, highlighting the precision and cleanliness of the environment. The overall feel is one of reliability and traditional expertise blended with modern standards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHb0ticlveYW8jpIN12xQXR8Joky0m35V7SID6qCRcFGgyL7Wusi1bPo0rMdKIQufLuvS8ufqqCyM2McEHdoGJAMApmJs6SDqrPbol00v90uq6DLNHJTKNBPjEXfXpue278_ZsscxvaGPFXJz-rMlJKFjMuw9NZeao27Yp_B2MEbOwJz66XK0C8qPjOOnmJtmeV3uUrWXRayvyiH5kWpr4XACFUtKHL1oAV9vvjuNzMRhNz1qamAlC2QoqvyBNuqyW5U4F39iN0sIv"/>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h3 class="font-headline-md text-body-base font-bold text-on-surface">Josephat Korir</h3>
+<div class="flex items-center justify-center bg-blue-600 rounded-full w-4 h-4" title="Verified">
+<span class="material-symbols-outlined text-[10px] text-white" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 font-label-caps text-[10px] uppercase">VERIFIED FARMER</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm">
+<span class="material-symbols-outlined text-[18px] text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-semibold">5.0</span>
+<span class="text-outline">(214 reviews)</span>
+<span class="mx-1">•</span>
+<span class="text-emerald-700 font-medium">99% Fulfillment</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm">
+<span class="material-symbols-outlined text-[18px] text-outline">location_on</span>
+<span>Limuru, Kiambu County</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-sm rounded-lg">
+<p class="font-label-caps text-[10px] text-outline mb-1 uppercase tracking-wider">Main Products</p>
+<p class="font-body-sm text-on-surface font-medium">Fresh Milk, Cheese, Yogurt</p>
+</div>
+<button class="mt-auto w-full py-2.5 rounded-lg bg-primary text-on-primary font-label-caps text-label-caps hover:bg-primary-container hover:text-on-primary-container transition-colors active:scale-[0.98]">View Profile</button>
+</div>
+</section>
+<!-- Empty State (Hidden by default) -->
+<section class="hidden flex flex-col items-center justify-center py-xl text-center">
+<div class="w-32 h-32 mb-md">
+<img alt="No results found" class="w-full h-full object-contain opacity-20 grayscale" data-alt="A minimalist monochrome illustration of a magnifying glass over a stylized field with no crops, representing an empty search result. The illustration is in a soft grey palette with no harsh strokes, giving it a sunken, secondary appearance in a bright light-mode UI. The style is modern, corporate, and clean." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgjU28QBj-H2WR2ykr5u_Yv0DdygsVwL-9w8B1juyxiEV29uSlh7jh9DUud6e8QGphe67EGs7rCPa5c91UICiCNu9ProgDR7SWRnjKFArI4T7B9ogzU10Wlx-f7duzybIcyFsnBHmSEel2v5K-XB6MtsaXzLnJ6FDWdSAUCqEHSq3sUlDsSXzWFbqNNiTvcKfp-85EWpnqV4D4RjgRATaFM-Rhx2F4bJhWZPO9NR6AFtfO6Y25F9oPfj1tLUfFbI9cPzwyr8xxQj-C"/>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xs">No farmers found</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-lg max-w-sm">We couldn't find any farmers matching your current filters. Try adjusting your search or category selection.</p>
+<button class="px-6 py-2 rounded-lg bg-primary text-on-primary font-label-caps text-label-caps hover:shadow-md transition-all active:scale-95">Clear All Filters</button>
+</section>
+</main>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+<a class="flex flex-col items-center justify-center bg-emerald-50 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-lg px-3 py-1 active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-manrope text-[11px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-3 py-1 hover:text-emerald-600 active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">package_2</span>
+<span class="font-manrope text-[11px] font-medium">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-3 py-1 hover:text-emerald-600 active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-manrope text-[11px] font-medium">Profile</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-3 py-1 hover:text-emerald-600 active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-manrope text-[11px] font-medium">Settings</span>
+</a>
+</nav>
+</body></html>

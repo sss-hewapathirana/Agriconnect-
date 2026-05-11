@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agriconnect - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#b4cdb8",
+                    "outline-variant": "#c3c8c1",
+                    "secondary-fixed": "#d9eaa3",
+                    "on-tertiary-container": "#b3897a",
+                    "on-secondary-fixed-variant": "#3e4c16",
+                    "surface-container-highest": "#e1e3e1",
+                    "surface-tint": "#4d6453",
+                    "on-primary-container": "#819986",
+                    "surface-container": "#eceeec",
+                    "tertiary-container": "#41241a",
+                    "on-secondary-fixed": "#161f00",
+                    "tertiary-fixed": "#ffdbcf",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#d6e7a1",
+                    "tertiary-fixed-dim": "#ebbcac",
+                    "surface-bright": "#f8faf8",
+                    "on-secondary-container": "#5a682f",
+                    "on-primary-fixed-variant": "#364c3c",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#1b3022",
+                    "surface-variant": "#e1e3e1",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#2e3130",
+                    "primary": "#061b0e",
+                    "error": "#ba1a1a",
+                    "outline": "#737973",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#191c1b",
+                    "secondary": "#56642b",
+                    "inverse-on-surface": "#eff1ef",
+                    "tertiary": "#291007",
+                    "surface-dim": "#d8dad9",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#f8faf8",
+                    "secondary-fixed-dim": "#bdce89",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#b4cdb8",
+                    "surface-container-high": "#e6e9e7",
+                    "primary-fixed": "#d0e9d4",
+                    "on-tertiary-fixed-variant": "#603f33",
+                    "background": "#f8faf8",
+                    "on-tertiary-fixed": "#2e150b",
+                    "on-background": "#191c1b",
+                    "surface-container-low": "#f2f4f2",
+                    "on-surface-variant": "#434843",
+                    "on-primary-fixed": "#0b2013"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "48px",
+                    "container-padding": "20px",
+                    "lg": "32px",
+                    "gutter": "16px",
+                    "sm": "16px",
+                    "base": "4px",
+                    "xs": "8px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Public Sans"],
+                    "body-md": ["Public Sans"],
+                    "body-lg": ["Public Sans"],
+                    "headline-sm": ["Public Sans"],
+                    "display": ["Public Sans"],
+                    "headline-md": ["Public Sans"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "display": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .inset-accent {
+            box-shadow: inset 4px 0 0 0 #061b0e;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800 sticky top-0 z-50">
+<div class="flex justify-between items-center px-5 h-16 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-emerald-900 dark:text-emerald-400" data-icon="agriculture">agriculture</span>
+<h1 class="font-public-sans font-bold tracking-tight text-xl font-black text-emerald-900 dark:text-emerald-400 uppercase tracking-wider">Agriconnect</h1>
+</div>
+<div class="flex items-center gap-gutter">
+<button class="p-xs hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors duration-200 active:opacity-70 rounded-full">
+<span class="material-symbols-outlined text-stone-500" data-icon="dark_mode">dark_mode</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-screen-xl mx-auto px-container-padding py-lg">
+<div class="mb-lg">
+<h2 class="font-display text-display text-primary">Settings</h2>
+<p class="font-body-md text-on-surface-variant">Manage your account preferences and agricultural profile.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Left Column: User Profile Section -->
+<section class="md:col-span-7 space-y-gutter">
+<div class="bg-white border border-outline-variant p-md inset-accent">
+<div class="flex items-center justify-between mb-md">
+<h3 class="font-headline-sm text-headline-sm flex items-center gap-xs">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+                            User Profile
+                        </h3>
+<button class="text-secondary font-label-caps uppercase flex items-center gap-base">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+                            Edit Profile
+                        </button>
+</div>
+<div class="space-y-md">
+<div class="flex flex-col gap-base">
+<label class="font-label-caps text-label-caps text-outline">Full Name</label>
+<input class="bg-surface-container-low border border-outline-variant px-sm py-xs font-body-md rounded-none focus:border-primary-container outline-none transition-all" readonly="" type="text" value="Samuel Thompson"/>
+</div>
+<div class="flex flex-col gap-base">
+<label class="font-label-caps text-label-caps text-outline">Phone Number</label>
+<input class="bg-surface-container-low border border-outline-variant px-sm py-xs font-body-md rounded-none focus:border-primary-container outline-none transition-all" readonly="" type="tel" value="+1 (555) 982-4410"/>
+</div>
+<div class="flex flex-col gap-base">
+<label class="font-label-caps text-label-caps text-outline">Farm Location</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border border-outline-variant px-sm py-xs pl-xl font-body-md rounded-none focus:border-primary-container outline-none transition-all" readonly="" type="text" value="Sacramento Valley, CA"/>
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline" data-icon="location_on">location_on</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Account Actions Section -->
+<div class="bg-white border border-outline-variant p-md inset-accent" style="box-shadow: inset 4px 0 0 0 #ba1a1a;">
+<h3 class="font-headline-sm text-headline-sm mb-md flex items-center gap-xs">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+                        Account
+                    </h3>
+<div class="space-y-sm">
+<button class="w-full text-left flex items-center justify-between p-sm border border-outline-variant hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-outline" data-icon="switch_account">switch_account</span>
+<span class="font-body-md">Change Role</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full text-left flex items-center justify-between p-sm border border-outline-variant hover:bg-error-container transition-colors group">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-error" data-icon="logout">logout</span>
+<span class="font-body-md text-error font-bold">Log Out</span>
+</div>
+</button>
+</div>
+</div>
+</section>
+<!-- Right Column: Preferences Section -->
+<section class="md:col-span-5 space-y-gutter">
+<div class="bg-white border border-outline-variant p-md inset-accent" style="box-shadow: inset 4px 0 0 0 #56642b;">
+<h3 class="font-headline-sm text-headline-sm mb-md flex items-center gap-xs">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+                        Preferences
+                    </h3>
+<div class="divide-y divide-outline-variant">
+<!-- Dark Mode Toggle -->
+<div class="py-sm flex items-center justify-between">
+<div>
+<p class="font-body-md font-bold">Dark Mode</p>
+<p class="text-[12px] text-outline">Adjust visual appearance for low light.</p>
+</div>
+<div class="relative inline-block w-12 h-6 transition duration-200 ease-in-out bg-surface-container rounded-full cursor-pointer">
+<div class="absolute left-1 top-1 bg-white border border-outline-variant w-4 h-4 rounded-full transition-transform"></div>
+</div>
+</div>
+<!-- Notification Toggle -->
+<div class="py-sm flex items-center justify-between">
+<div>
+<p class="font-body-md font-bold">Notification</p>
+<p class="text-[12px] text-outline">Receive alerts for moisture and harvest levels.</p>
+</div>
+<div class="relative inline-block w-12 h-6 transition duration-200 ease-in-out bg-primary rounded-full cursor-pointer">
+<div class="absolute right-1 top-1 bg-white w-4 h-4 rounded-full transition-transform"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Visual Asset / Context Card -->
+<div class="relative overflow-hidden border border-outline-variant aspect-video">
+<img alt="Agricultural landscape" class="w-full h-full object-cover grayscale-[0.5] opacity-80" data-alt="A wide-angle landscape shot of a sustainable modern farm at sunrise. Pristine rows of verdant crops stretch towards a minimalist farmhouse in the distance. The lighting is golden and high-contrast, emphasizing the clean lines of the agricultural grid. The atmosphere is calm, professional, and reflects an efficient high-tech farming operation with a natural light-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUE6zt4JdhIIz90Pz5hofHjt42v6bSV4IANgZ4aAOT8EEnZmG0qNuNJ_5tB6U8NlcILt9BT3CwBm-y0aLJYczj6mqxe3O4sGdd5GSP9eUnvv3fQl8ubM5IGDtsQcOBEi26w-oLh2mKCb2xtZbu3imzIygW3GqXM2CmibEuL6lRfIAK8NXe7kIDG1AdwuyXje5KjikRD-LGUhkZSJUeKJ2wpu3kobLuvh_9HUK2jAYQqVmnz7rvGLN_85ZnqTjpMLC61DQ5YWY6NXAZ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-md">
+<p class="text-white font-label-caps">Farm Monitoring Active • System Stable</p>
+</div>
+</div>
+</section>
+</div>
+<footer class="mt-xl pt-lg border-t border-outline-variant text-center">
+<p class="font-label-caps text-outline uppercase tracking-widest">Agriconnect Utility Suite</p>
+<p class="font-label-caps text-outline-variant mt-xs">Version 2.4.12-PRO</p>
+</footer>
+</main>
+<!-- BottomNavBar (Shared Component Logic) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center bg-white dark:bg-stone-900 px-2 pb-safe border-t border-stone-200 dark:border-stone-800">
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 pt-2 pb-3 active:scale-95 transition-transform duration-150 hover:text-emerald-700" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-public-sans text-[11px] font-bold uppercase tracking-tighter">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 pt-2 pb-3 active:scale-95 transition-transform duration-150 hover:text-emerald-700" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-public-sans text-[11px] font-bold uppercase tracking-tighter">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 pt-2 pb-3 active:scale-95 transition-transform duration-150 hover:text-emerald-700" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-public-sans text-[11px] font-bold uppercase tracking-tighter">Profile</span>
+</a>
+<a class="flex flex-col items-center justify-center text-emerald-900 dark:text-emerald-400 border-t-2 border-emerald-900 dark:border-emerald-400 pt-2 pb-3 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-public-sans text-[11px] font-bold uppercase tracking-tighter">Settings</span>
+</a>
+</nav>
+</body></html>

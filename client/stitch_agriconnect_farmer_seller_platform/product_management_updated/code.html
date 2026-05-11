@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#fdf7ff",
+                    "on-tertiary-fixed": "#241a00",
+                    "surface-container-highest": "#e6e0e9",
+                    "primary-fixed": "#e9ddff",
+                    "surface-variant": "#e6e0e9",
+                    "on-tertiary-container": "#503d00",
+                    "surface-dim": "#ded8e0",
+                    "outline-variant": "#cbc4d2",
+                    "outline": "#7a7582",
+                    "on-surface-variant": "#494551",
+                    "on-tertiary-fixed-variant": "#594400",
+                    "background": "#fdf7ff",
+                    "on-primary-fixed-variant": "#4f378a",
+                    "on-secondary-container": "#645a7d",
+                    "error": "#ba1a1a",
+                    "primary-container": "#6750a4",
+                    "on-secondary-fixed": "#1f1635",
+                    "secondary": "#63597c",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffdf93",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#e7c365",
+                    "inverse-surface": "#322f35",
+                    "on-surface": "#1d1b20",
+                    "on-error-container": "#93000a",
+                    "primary": "#4f378a",
+                    "on-secondary-fixed-variant": "#4b4263",
+                    "inverse-on-surface": "#f5eff7",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#e0d2ff",
+                    "inverse-primary": "#cfbcff",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#cdc0e9",
+                    "tertiary-container": "#c9a74d",
+                    "tertiary": "#765b00",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#ece6ee",
+                    "on-primary-fixed": "#22005d",
+                    "surface": "#fdf7ff",
+                    "surface-container": "#f2ecf4",
+                    "secondary-fixed": "#e9ddff",
+                    "on-background": "#1d1b20",
+                    "primary-fixed-dim": "#cfbcff",
+                    "secondary-container": "#e1d4fd",
+                    "surface-container-low": "#f8f2fa",
+                    "surface-tint": "#6750a4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "8px",
+                    "container-max": "1280px",
+                    "xs": "4px",
+                    "xl": "48px",
+                    "md": "16px",
+                    "unit": "4px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Inter"],
+                    "body-base": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "display-lg": ["Manrope"],
+                    "headline-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-base": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "display-lg": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #F8FAFC;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-base text-on-surface">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-4 h-16 fixed top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<span class="text-xl font-extrabold text-emerald-900 dark:text-emerald-500 uppercase tracking-wider font-display-lg">Agriconnect</span>
+<span class="bg-emerald-100 text-emerald-900 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-200 tracking-widest">FARMER</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-slate-500 hover:bg-slate-50 p-2 rounded-full transition-transform active:scale-95 duration-150" data-icon="notifications">notifications</button>
+<div class="w-8 h-8 rounded-full bg-emerald-100 border border-emerald-200 flex items-center justify-center overflow-hidden">
+<img alt="Farmer Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged farmer with a warm, friendly expression, wearing a clean denim shirt. The background is a soft-focus vibrant green field at sunrise, with golden morning light illuminating his features. The image is captured in high resolution with a professional bokeh effect, emphasizing the trustworthy and hardworking personality of an agricultural professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgwRaPd-fMWzw-IyWvOTjquN639Vubz3lc0mqWyC0_MGAk2xwZBsabFTCYU1bpYLLS9tT3rqQujQOfY-3SWnwhcKffQ1YzIjmTwOgI9SYA-iHSRHXhz1MHQH4HkaJryhTFsdfDyL57echzAe03lk7QJ-5nQB6i416jl5ThTDgH-0PnH6EQfkMOODCKYfWcMTvNHhQfHERFjkmSFeF2K-JGu9o4jJDHgVT73pvB6Mtq2Af578boNlUziweLaeb4Gc7_tdxUB2bFAAMx"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-32 px-4 md:px-xl max-w-container-max mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-lg gap-md">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight">My Inventory</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Manage your farm products and real-time stock levels.</p>
+</div>
+<button class="bg-emerald-700 hover:bg-emerald-800 text-white px-lg py-sm rounded-lg flex items-center gap-2 font-label-caps active:scale-95 transition-all duration-200 shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+                + Add New Product
+            </button>
+</div>
+<!-- Inventory Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Product Card 1 -->
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col group">
+<div class="h-48 w-full overflow-hidden relative">
+<img alt="Organic Roma Tomatoes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A vibrant close-up shot of several ripe, deep red Roma tomatoes still on a vine, lightly misted with fresh water droplets. The lighting is bright and natural, suggesting a sunny greenhouse environment. The composition is artistic and high-quality, emphasizing the fresh, organic quality of the produce against a soft green foliage background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVPHZikZEvFIuZiB8Q4PV8P9_qeYQGLieaC4m2uq020qzslzNQ31RQUaN_SdxZhfqk_7xMPMUOrOG6ZVtjZDMD2KYZgPth4ewmewPhvWLKMH5g2BVRIdppJcCbFC1hEzGCgGFLb873OfEBDCnHAentBlIDjs4zlMOabv32hE0_3OvcSJ1JEfK_V6hFYMHu5zXyrKPBd1mhmuGuC2ZRgc09T_6LZ_FniP0DoGT4AO4p-musWWnaM5OyFalsyikFKBYsE8Oc85WCiIAn"/>
+<div class="absolute top-3 right-3 flex gap-2">
+<button class="bg-white/90 backdrop-blur p-2 rounded-full text-slate-600 hover:text-emerald-700 active:scale-90 transition-all border border-slate-100">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="bg-white/90 backdrop-blur p-2 rounded-full text-slate-600 hover:text-red-600 active:scale-90 transition-all border border-slate-100">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-body-base font-bold text-on-surface">Organic Roma Tomatoes</h3>
+</div>
+<div class="flex items-center gap-4 mt-auto">
+<div class="flex flex-col">
+<span class="font-label-caps text-on-surface-variant text-[10px]">PRICE</span>
+<span class="font-bold text-emerald-800">$4.50/kg</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-on-surface-variant text-[10px]">STOCK</span>
+<span class="font-bold text-on-surface">240 kg</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col group">
+<div class="h-48 w-full overflow-hidden relative">
+<img alt="Baby Spinach" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Fresh, vibrant green baby spinach leaves arranged in a rustic wooden crate. The lighting is soft and diffuse, highlighting the delicate textures and rich color of the leaves. The scene is presented in a clean, minimalist agricultural setting, using a natural light-mode aesthetic with soft shadows to convey health, freshness, and high-quality farming practices." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALt1dXRIUoEnaDrJf4FolG26Tz15BRqae2YX15TrCiIprZ2hdLoRDyrOgC9e2jDCwYAOtolKs1sdhUDXI_Cdc4u5CBVAQ2ugSVC7FmPkvmMkbqfpG7yh2Ottusk47QcDwqlo30qZmhmPFpUKnS9OxYqx5m8KS0Qb_PzhyYw5Aq_yJ40FPm6SYse-nkjiGzEcmCWo37CWPMIdN76AEDYnew9rW0tiwpeTIWYWZxOToLzoOf7WebxAozAcCfrVBp3jFmm2BsbARv3WjZ"/>
+<div class="absolute top-3 left-3">
+<span class="bg-amber-50 text-amber-900 border border-amber-200 px-3 py-1 rounded-full font-label-caps text-[10px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="warning">warning</span>
+                            Low Stock
+                        </span>
+</div>
+<div class="absolute top-3 right-3 flex gap-2">
+<button class="bg-white/90 backdrop-blur p-2 rounded-full text-slate-600 hover:text-emerald-700 active:scale-90 transition-all border border-slate-100">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="bg-white/90 backdrop-blur p-2 rounded-full text-slate-600 hover:text-red-600 active:scale-90 transition-all border border-slate-100">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-body-base font-bold text-on-surface">Baby Spinach</h3>
+</div>
+<div class="flex items-center gap-4 mt-auto">
+<div class="flex flex-col">
+<span class="font-label-caps text-on-surface-variant text-[10px]">PRICE</span>
+<span class="font-bold text-emerald-800">$8.00/kg</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-on-surface-variant text-[10px]">STOCK</span>
+<span class="font-bold text-error">12 kg</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State Placeholder (Demonstration only, normally hidden) -->
+<!-- To show: remove 'hidden' class -->
+<div class="hidden col-span-full flex flex-col items-center justify-center py-24 bg-white rounded-xl border border-dashed border-slate-300">
+<div class="w-40 h-40 mb-lg opacity-20">
+<span class="material-symbols-outlined text-[160px] text-slate-400" data-icon="inventory_2">inventory_2</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Your inventory is empty</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center max-w-sm mb-lg">Start selling by adding your first agricultural product to the marketplace.</p>
+<button class="bg-emerald-700 hover:bg-emerald-800 text-white px-lg py-sm rounded-lg font-label-caps active:scale-95 transition-all">
+                    Add your first product
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+<div class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-3 py-1 hover:text-emerald-600 dark:hover:text-emerald-300 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-manrope text-[11px] font-medium">Home</span>
+</div>
+<!-- Active Tab: Orders (Inventory maps to Orders context in this specific schema) -->
+<div class="flex flex-col items-center justify-center bg-emerald-50 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-lg px-3 py-1 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="package_2">package_2</span>
+<span class="font-manrope text-[11px] font-medium">Orders</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-3 py-1 hover:text-emerald-600 dark:hover:text-emerald-300 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-manrope text-[11px] font-medium">Profile</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-3 py-1 hover:text-emerald-600 dark:hover:text-emerald-300 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-manrope text-[11px] font-medium">Settings</span>
+</div>
+</nav>
+<!-- Contextual FAB - Only for top-level product flow -->
+<button class="fixed bottom-24 right-6 w-14 h-14 rounded-full bg-emerald-800 text-white shadow-xl flex items-center justify-center active:scale-90 transition-transform md:hidden z-40">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</body></html>

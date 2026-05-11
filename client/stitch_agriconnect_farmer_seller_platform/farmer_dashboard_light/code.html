@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agriconnect Farmer Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#b4cdb8",
+                    "outline-variant": "#c3c8c1",
+                    "secondary-fixed": "#d9eaa3",
+                    "on-tertiary-container": "#b3897a",
+                    "on-secondary-fixed-variant": "#3e4c16",
+                    "surface-container-highest": "#e1e3e1",
+                    "surface-tint": "#4d6453",
+                    "on-primary-container": "#819986",
+                    "surface-container": "#eceeec",
+                    "tertiary-container": "#41241a",
+                    "on-secondary-fixed": "#161f00",
+                    "tertiary-fixed": "#ffdbcf",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#d6e7a1",
+                    "tertiary-fixed-dim": "#ebbcac",
+                    "surface-bright": "#f8faf8",
+                    "on-secondary-container": "#5a682f",
+                    "on-primary-fixed-variant": "#364c3c",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#1b3022",
+                    "surface-variant": "#e1e3e1",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#2e3130",
+                    "primary": "#061b0e",
+                    "error": "#ba1a1a",
+                    "outline": "#737973",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#191c1b",
+                    "secondary": "#56642b",
+                    "inverse-on-surface": "#eff1ef",
+                    "tertiary": "#291007",
+                    "surface-dim": "#d8dad9",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#f8faf8",
+                    "secondary-fixed-dim": "#bdce89",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#b4cdb8",
+                    "surface-container-high": "#e6e9e7",
+                    "primary-fixed": "#d0e9d4",
+                    "on-tertiary-fixed-variant": "#603f33",
+                    "background": "#f8faf8",
+                    "on-tertiary-fixed": "#2e150b",
+                    "on-background": "#191c1b",
+                    "surface-container-low": "#f2f4f2",
+                    "on-surface-variant": "#434843",
+                    "on-primary-fixed": "#0b2013"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "48px",
+                    "container-padding": "20px",
+                    "lg": "32px",
+                    "gutter": "16px",
+                    "sm": "16px",
+                    "base": "4px",
+                    "xs": "8px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Public Sans"],
+                    "body-md": ["Public Sans"],
+                    "body-lg": ["Public Sans"],
+                    "headline-sm": ["Public Sans"],
+                    "display": ["Public Sans"],
+                    "headline-md": ["Public Sans"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "display": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f8faf8;
+            color: #191c1b;
+        }
+        .order-card-border {
+            border-left: 4px solid #061b0e;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800 sticky top-0 z-50">
+<div class="flex justify-between items-center px-5 h-16 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-emerald-900 dark:text-emerald-400" data-icon="agriculture">agriculture</span>
+<span class="font-public-sans font-bold tracking-tight text-xl font-black text-emerald-900 dark:text-emerald-400 uppercase tracking-wider">Agriconnect</span>
+</div>
+<button class="transition-colors duration-200 active:opacity-70 hover:bg-stone-100 dark:hover:bg-stone-800 p-2 rounded-full">
+<span class="material-symbols-outlined text-stone-500 dark:text-stone-400" data-icon="dark_mode">dark_mode</span>
+</button>
+</div>
+</header>
+<main class="max-w-screen-xl mx-auto px-container-padding pt-md pb-xl">
+<!-- Header Section -->
+<section class="mb-lg">
+<h1 class="font-display text-display text-primary mb-base">Welcome Farmer Jonathan</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage your marketplace and track active buyer requests.</p>
+</section>
+<!-- Statistics Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-lg">
+<div class="bg-white border border-outline-variant p-md order-card-border">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-base">ACTIVE ORDERS</p>
+<p class="font-headline-md text-headline-md text-primary">12</p>
+</div>
+<div class="bg-white border border-outline-variant p-md order-card-border border-l-secondary">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-base">TOTAL REVENUE</p>
+<p class="font-headline-md text-headline-md text-primary">$4,280</p>
+</div>
+<div class="md:col-span-2 bg-primary-container text-on-primary-container p-md relative overflow-hidden flex flex-col justify-end min-h-[140px]">
+<div class="z-10">
+<p class="font-label-caps text-label-caps text-on-primary-fixed mb-base">CROP HEALTH STATUS</p>
+<p class="font-headline-sm text-headline-sm text-white">Optimal Growth Pattern</p>
+</div>
+<div class="absolute right-0 top-0 opacity-20 transform translate-x-1/4 -translate-y-1/4">
+<span class="material-symbols-outlined text-[120px]" data-icon="potted_plant">potted_plant</span>
+</div>
+</div>
+</section>
+<!-- Main Feed Header -->
+<div class="flex items-center justify-between mb-sm">
+<h2 class="font-headline-sm text-headline-sm text-primary flex items-center gap-xs">
+                Incoming Orders
+                <span class="bg-secondary-container text-on-secondary-container text-[12px] px-xs py-[2px] rounded-full">3 NEW</span>
+</h2>
+<button class="font-label-caps text-label-caps text-primary border-b border-primary pb-base hover:opacity-70 transition-opacity">
+                VIEW HISTORY
+            </button>
+</div>
+<!-- Order Feed -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Incoming Order Card 1 -->
+<div class="bg-white border border-outline-variant p-md flex flex-col gap-sm relative group hover:shadow-sm transition-shadow">
+<div class="absolute left-0 top-0 h-full w-1 bg-primary"></div>
+<div class="flex justify-between items-start">
+<div class="flex gap-sm">
+<img alt="Seller Profile" class="w-12 h-12 rounded-lg object-cover border border-outline-variant" data-alt="A professional portrait of a sustainable food wholesaler in a clean, high-key office environment. The image uses a natural, bright light-mode aesthetic with soft greens and earth tones in the background, reflecting a professional agricultural business setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXHyUtzKqIKpUVD6pfT36HlXxI9uWiB_yhhFMLNkpYlWXufuhWii3tCJgRLwr57CSa_ihdn7Z8VnTpjWTbaMi0aAsX98U-35P12oUSCh3tCkqtt0d4eRr0hPPWRtfU70sP7expSrpUeSY1obZr6xtADt8ToGZnBO2qTg_QmNYX_c8Z7tsoz6Pdq2FVXBffKAsNiLGDYstfOyaYhG0rhJ59NRf7LVUqi3-dH2aCWH7r97CdO0eWBhuInGvOMcYktmUyHabqvO_3Fzcb"/>
+<div>
+<p class="font-headline-sm text-[16px] text-primary">FreshMarket Wholesalers</p>
+<p class="font-body-md text-[14px] text-on-surface-variant">Verified Buyer • 4.9★</p>
+</div>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed text-[10px] font-bold px-xs py-base rounded uppercase tracking-wider">Urgent</span>
+</div>
+<div class="grid grid-cols-2 gap-sm py-base border-y border-surface-container">
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant">PRODUCT</p>
+<p class="font-body-md font-bold text-primary">Organic Red Tomatoes</p>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant">QUANTITY</p>
+<p class="font-body-md font-bold text-primary">500 kg</p>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant">DEADLINE</p>
+<p class="font-body-md font-bold text-error flex items-center gap-[2px]">
+<span class="material-symbols-outlined text-[14px]" data-icon="timer">timer</span>
+                            24 Hours
+                        </p>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant">OFFER PRICE</p>
+<p class="font-body-md font-bold text-primary">$1,250.00</p>
+</div>
+</div>
+<div class="flex gap-sm mt-base">
+<button class="flex-1 min-h-[56px] bg-primary text-white font-bold rounded hover:bg-black transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+                        Accept
+                    </button>
+<button class="flex-1 min-h-[56px] border border-primary bg-secondary-container/5 text-primary font-bold rounded hover:bg-secondary-container/10 transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" data-icon="cancel">cancel</span>
+                        Reject
+                    </button>
+</div>
+</div>
+<!-- Incoming Order Card 2 -->
+<div class="bg-white border border-outline-variant p-md flex flex-col gap-sm relative group hover:shadow-sm transition-shadow">
+<div class="absolute left-0 top-0 h-full w-1 bg-secondary"></div>
+<div class="flex justify-between items-start">
+<div class="flex gap-sm">
+<img alt="Seller Profile" class="w-12 h-12 rounded-lg object-cover border border-outline-variant" data-alt="A clean, minimalist logo of an eco-friendly food distribution company on a white stone background. The scene is illuminated by crisp morning daylight, emphasizing a fresh, professional, and trustworthy agricultural brand identity with a primary palette of greens and slates." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2SP8RPGX2Pl-PWaNcCqpLj5vFrv-3et19GrAwZUJmWWlrdK6MTznU3e3Kon81ybg5aEGd5ZfUd1OpnrWnDjRYtVtdqDXq53KYmUxMFiTljsybFj0WpuDXKhBXGTUv6W0Uu-4RUyGU-NpCRjwv8s7M1U9cTajBhOFRqavjYrzD2iaCuLv4BM-pCNo-bxCXhWy4PsGFH8_rjk_f6yOlolvhKVIm8p1fSFTrZFPSMXqaxwWbRnLv6NFBYOJEffBFt10ydLRqpXIqTFZG"/>
+<div>
+<p class="font-headline-sm text-[16px] text-primary">EcoGreen Logistics</p>
+<p class="font-body-md text-[14px] text-on-surface-variant">Enterprise Buyer • 4.7★</p>
+</div>
+</div>
+<span class="bg-surface-container text-on-surface-variant text-[10px] font-bold px-xs py-base rounded uppercase tracking-wider">Standard</span>
+</div>
+<div class="grid grid-cols-2 gap-sm py-base border-y border-surface-container">
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant">PRODUCT</p>
+<p class="font-body-md font-bold text-primary">Sweet Yellow Corn</p>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant">QUANTITY</p>
+<p class="font-body-md font-bold text-primary">1,200 kg</p>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant">DEADLINE</p>
+<p class="font-body-md font-bold text-primary flex items-center gap-[2px]">
+<span class="material-symbols-outlined text-[14px]" data-icon="calendar_today">calendar_today</span>
+                            Oct 25, 2023
+                        </p>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant">OFFER PRICE</p>
+<p class="font-body-md font-bold text-primary">$2,800.00</p>
+</div>
+</div>
+<div class="flex gap-sm mt-base">
+<button class="flex-1 min-h-[56px] bg-primary text-white font-bold rounded hover:bg-black transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+                        Accept
+                    </button>
+<button class="flex-1 min-h-[56px] border border-primary bg-secondary-container/5 text-primary font-bold rounded hover:bg-secondary-container/10 transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" data-icon="cancel">cancel</span>
+                        Reject
+                    </button>
+</div>
+</div>
+<!-- Incoming Order Card 3 -->
+<div class="bg-white border border-outline-variant p-md flex flex-col gap-sm relative group hover:shadow-sm transition-shadow">
+<div class="absolute left-0 top-0 h-full w-1 bg-primary"></div>
+<div class="flex justify-between items-start">
+<div class="flex gap-sm">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-primary" data-icon="store">store</span>
+</div>
+<div>
+<p class="font-headline-sm text-[16px] text-primary">Local Harvest Co-op</p>
+<p class="font-body-md text-[14px] text-on-surface-variant">Community Partner</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-sm py-base border-y border-surface-container">
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant">PRODUCT</p>
+<p class="font-body-md font-bold text-primary">Baby Spinach Bundles</p>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant">QUANTITY</p>
+<p class="font-body-md font-bold text-primary">150 Units</p>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant">DEADLINE</p>
+<p class="font-body-md font-bold text-primary flex items-center gap-[2px]">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+                            48 Hours
+                        </p>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant">OFFER PRICE</p>
+<p class="font-body-md font-bold text-primary">$450.00</p>
+</div>
+</div>
+<div class="flex gap-sm mt-base">
+<button class="flex-1 min-h-[56px] bg-primary text-white font-bold rounded hover:bg-black transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+                        Accept
+                    </button>
+<button class="flex-1 min-h-[56px] border border-primary bg-secondary-container/5 text-primary font-bold rounded hover:bg-secondary-container/10 transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" data-icon="cancel">cancel</span>
+                        Reject
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center bg-white dark:bg-stone-900 px-2 pb-safe border-t border-stone-200 dark:border-stone-800 h-16">
+<a class="flex flex-col items-center justify-center text-emerald-900 dark:text-emerald-400 border-t-2 border-emerald-900 dark:border-emerald-400 pt-2 pb-3 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-public-sans text-[11px] font-bold uppercase tracking-tighter">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 pt-2 pb-3 hover:text-emerald-700 dark:hover:text-emerald-300 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-public-sans text-[11px] font-bold uppercase tracking-tighter">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 pt-2 pb-3 hover:text-emerald-700 dark:hover:text-emerald-300 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-public-sans text-[11px] font-bold uppercase tracking-tighter">Profile</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 pt-2 pb-3 hover:text-emerald-700 dark:hover:text-emerald-300 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-public-sans text-[11px] font-bold uppercase tracking-tighter">Settings</span>
+</a>
+</nav>
+</body></html>
