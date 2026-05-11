@@ -65,6 +65,19 @@ export async function getFarmerProductsHandler(req: Request, res: Response) {
   }
 }
 
+// ─── GET /api/products/mine ───────────────────────────────────────────────────
+// Products for the current authenticated farmer
+export async function getMyProductsHandler(req: Request, res: Response) {
+  try {
+    const dbUser = getDbUser(req);
+    const products = await getFarmerProducts(dbUser.id);
+    res.json({ products });
+  } catch (err) {
+    console.error("[getMyProducts]", err);
+    res.status(500).json({ error: "Failed to fetch your products" });
+  }
+}
+
 // ─── PATCH /api/products/:id ──────────────────────────────────────────────────
 // Farmer only — can only update their own products
 export async function updateProductHandler(req: Request, res: Response) {
