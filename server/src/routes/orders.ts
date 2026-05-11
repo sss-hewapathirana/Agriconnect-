@@ -28,6 +28,7 @@ router.post(
 
 // ─── Both roles: view own orders ──────────────────────────────────────────────
 router.get("/", listOrders);
+router.get("/mine", listOrders);
 router.get("/:id", getOrderHandler);
 
 // ─── Farmer: accept / reject ──────────────────────────────────────────────────
