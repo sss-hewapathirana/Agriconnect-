@@ -19,7 +19,7 @@ export default function SellerDashboard() {
     try {
       setLoading(true);
       const res = await getFarmersFeed();
-      setFarmers(res.data || []);
+      setFarmers(res.data.farmers || []);
     } catch { setFarmers([]); } finally { setLoading(false); }
   };
 

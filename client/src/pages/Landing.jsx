@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useUser, SignInButton, SignUpButton } from '@clerk/clerk-react';
+import { useEffect } from 'react';
 import { Sprout, ShoppingCart, Star, ArrowRight, CheckCircle2, Leaf, TrendingUp, Shield } from 'lucide-react';
 
 const features = [
@@ -43,8 +44,13 @@ export default function Landing() {
   const { isSignedIn } = useUser();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (isSignedIn) {
+      navigate('/dashboard');
+    }
+  }, [isSignedIn, navigate]);
+
   if (isSignedIn) {
-    navigate('/dashboard');
     return null;
   }
 
