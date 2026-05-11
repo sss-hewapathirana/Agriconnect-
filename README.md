@@ -183,6 +183,34 @@ Agriconnect uses a **Premium Modern Design** philosophy:
 - **Responsive**: Mobile-first design with a dedicated `BottomNav` for smartphones.
 
 ---
+## 🛣️ API Endpoints & Documentation
+
+Detailed API documentation is available via Postman:
+👉 **[Agriconnect API Documentation](https://documenter.getpostman.com/view/52356358/2sBXqKnz7k)**
+### 👤 Users
+- `GET /api/users/profile` - Get current user profile
+- `POST /api/users/register` - Register/Update user profile
+- `GET /api/users/farmers` - List all registered farmers
+
+### 🌾 Products
+- `GET /api/products` - List all products (with filters)
+- `POST /api/products` - Add a new product (Farmer only)
+- `PUT /api/products/:id` - Update product details
+- `DELETE /api/products/:id` - Delete a product
+
+### 🛒 Orders
+- `GET /api/orders` - List orders for the current user
+- `POST /api/orders` - Place a new order (Seller only)
+- `PATCH /api/orders/:id/status` - Update order status (Farmer only)
+
+### ⭐ Reviews
+- `POST /api/reviews` - Rate a farmer
+- `GET /api/reviews/:farmerId` - Get reviews for a farmer
+
+## 👥 Development Team
+- **Backend Developer**: Omisha Pasandul Wickramaarachchi
+- **Frontend Developer**: Suvindu Supun Hewapathirana
+
 
 ## ⚖️ License
 This project is licensed under the MIT License — © 2026 Agriconnect Team.
