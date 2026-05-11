@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgriConnect - Farmer Registration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface": "#191c1b",
+                      "primary-fixed-dim": "#b4cdb8",
+                      "error": "#ba1a1a",
+                      "surface": "#f8faf8",
+                      "inverse-on-surface": "#eff1ef",
+                      "on-surface-variant": "#434843",
+                      "surface-dim": "#d8dad9",
+                      "surface-container-high": "#e6e9e7",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed-dim": "#bdce89",
+                      "surface-container-highest": "#e1e3e1",
+                      "tertiary-container": "#41241a",
+                      "surface-tint": "#4d6453",
+                      "primary-container": "#1b3022",
+                      "outline-variant": "#c3c8c1",
+                      "on-error": "#ffffff",
+                      "secondary": "#56642b",
+                      "on-primary-fixed-variant": "#364c3c",
+                      "tertiary-fixed": "#ffdbcf",
+                      "on-tertiary-container": "#b3897a",
+                      "on-primary-container": "#819986",
+                      "on-error-container": "#93000a",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed": "#161f00",
+                      "on-primary": "#ffffff",
+                      "on-background": "#191c1b",
+                      "on-secondary-container": "#5a682f",
+                      "surface-variant": "#e1e3e1",
+                      "surface-bright": "#f8faf8",
+                      "secondary-fixed": "#d9eaa3",
+                      "inverse-primary": "#b4cdb8",
+                      "inverse-surface": "#2e3130",
+                      "background": "#f8faf8",
+                      "on-secondary": "#ffffff",
+                      "primary-fixed": "#d0e9d4",
+                      "outline": "#737973",
+                      "on-secondary-fixed-variant": "#3e4c16",
+                      "secondary-container": "#d6e7a1",
+                      "surface-container-low": "#f2f4f2",
+                      "on-primary-fixed": "#0b2013",
+                      "primary": "#061b0e",
+                      "surface-container": "#eceeec",
+                      "on-tertiary-fixed": "#2e150b",
+                      "tertiary": "#291007",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed-dim": "#ebbcac",
+                      "on-tertiary-fixed-variant": "#603f33"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xs": "8px",
+                      "md": "24px",
+                      "gutter": "16px",
+                      "lg": "32px",
+                      "xl": "48px",
+                      "sm": "16px",
+                      "container-padding": "20px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "display": ["Public Sans"],
+                      "label-caps": ["Public Sans"],
+                      "body-lg": ["Public Sans"],
+                      "headline-sm": ["Public Sans"],
+                      "body-md": ["Public Sans"],
+                      "headline-md": ["Public Sans"]
+              },
+              "fontSize": {
+                      "display": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center h-14 w-full px-5 bg-white dark:bg-stone-950 border-b border-stone-200 dark:border-stone-800 sticky top-0 z-50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#1B3022] dark:text-emerald-500" data-icon="agriculture">agriculture</span>
+<h1 class="text-lg font-black text-[#1B3022] dark:text-emerald-500 uppercase tracking-tighter font-display">AgriConnect</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-stone-50 dark:hover:bg-stone-900 active:opacity-70 transition-all p-2 rounded-full">
+<span class="material-symbols-outlined text-[#1B3022] dark:text-emerald-500" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center p-container-padding py-xl">
+<div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-12 gap-lg items-stretch">
+<!-- Left Branding/Visual Panel -->
+<div class="hidden md:flex md:col-span-7 flex-col justify-center bg-primary-container p-xl rounded-xl relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="font-display text-display text-white mb-sm">Empowering the Modern Farmer.</h2>
+<p class="font-body-lg text-on-primary-container max-w-md">Join thousands of agricultural professionals managing their supply chains with precision and ease. From grain silos to vegetable gardens, we grow together.</p>
+</div>
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+<img alt="Farmer in a green field" class="w-full h-full object-cover" data-alt="A cinematic, wide-angle shot of a vast, vibrant green agricultural landscape during a soft golden hour. The image features rolling hills of perfectly tilled earth and healthy crops, bathed in high-contrast, professional lighting. The aesthetic is clean, modern, and utilitarian, emphasizing the intersection of nature and advanced farming. Earthy tones and forest greens dominate the palette, creating a serene and productive mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmDdueI3veoHIiSsehKajfs91jhl-DFQRREWxU_50kpllYoMQho2-Gf1MYNCRrThnXTGy8DODthYXPbILwErRy9X29TczNWPwsv0NxsMaFooyA4CyxZYrGeKGBORvrviVaA9fIvR0FVoNdHE_r0yw_HAucPEcdc6AiVPud8Ug8kAXb8LnG4yZPySsdZrIO3M3UBezz25i9b5G7hpJV8gPQa7oigkvce1l6ER1DavLLGewyxjmvJ21uCzV2VRWhMn0sHafwf4oMx-c3"/>
+</div>
+<!-- Progress Gauge Decor -->
+<div class="mt-xl flex gap-md relative z-10">
+<div class="flex items-center gap-xs bg-white/10 backdrop-blur-md p-sm border border-white/20 rounded-lg">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="water_drop">water_drop</span>
+<div class="flex flex-col">
+<span class="text-label-caps text-white/60">SOIL MOISTURE</span>
+<span class="font-headline-sm text-white">84%</span>
+</div>
+</div>
+<div class="flex items-center gap-xs bg-white/10 backdrop-blur-md p-sm border border-white/20 rounded-lg">
+<span class="material-symbols-outlined text-secondary-fixed" data-icon="eco">eco</span>
+<div class="flex flex-col">
+<span class="text-label-caps text-white/60">CROP HEALTH</span>
+<span class="font-headline-sm text-white">Optimal</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Authentication Form Panel -->
+<div class="md:col-span-5 bg-white border border-outline-variant p-lg rounded-xl shadow-sm">
+<div class="mb-lg">
+<h2 class="font-headline-md text-primary mb-xs">Create Farmer Account</h2>
+<p class="text-on-surface-variant font-body-md">Fill in your details to start your journey with AgriConnect.</p>
+</div>
+<form class="space-y-sm">
+<!-- Full Name -->
+<div class="flex flex-col gap-base">
+<label class="font-label-caps text-on-surface-variant uppercase" for="full-name">Full Name</label>
+<input class="h-12 w-full px-sm border border-outline rounded-DEFAULT focus:border-2 focus:border-primary-container focus:ring-0 outline-none transition-all placeholder:text-stone-300" id="full-name" placeholder="e.g. Samuel Green" type="text"/>
+</div>
+<!-- Phone Number -->
+<div class="flex flex-col gap-base">
+<label class="font-label-caps text-on-surface-variant uppercase" for="phone">Phone Number</label>
+<input class="h-12 w-full px-sm border border-outline rounded-DEFAULT focus:border-2 focus:border-primary-container focus:ring-0 outline-none transition-all placeholder:text-stone-300" id="phone" placeholder="+234 000 000 0000" type="tel"/>
+</div>
+<!-- Location -->
+<div class="flex flex-col gap-base">
+<label class="font-label-caps text-on-surface-variant uppercase" for="location">Location (State/Region)</label>
+<div class="relative">
+<input class="h-12 w-full px-sm border border-outline rounded-DEFAULT focus:border-2 focus:border-primary-container focus:ring-0 outline-none transition-all placeholder:text-stone-300" id="location" placeholder="Search your region" type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-outline" data-icon="location_on">location_on</span>
+</div>
+</div>
+<!-- Primary Crop Category -->
+<div class="flex flex-col gap-base">
+<label class="font-label-caps text-on-surface-variant uppercase" for="crop-category">Primary Crop Category</label>
+<select class="h-12 w-full px-sm border border-outline rounded-DEFAULT focus:border-2 focus:border-primary-container focus:ring-0 outline-none transition-all bg-white" id="crop-category">
+<option disabled="" selected="" value="">Select Category</option>
+<option value="grains">Grains (Rice, Maize, Wheat)</option>
+<option value="vegetables">Vegetables (Leafy Greens, Root)</option>
+<option value="fruits">Fruits (Citrus, Berries, Orchard)</option>
+<option value="tubers">Tubers (Yam, Cassava, Potato)</option>
+<option value="other">Other Commercial Crops</option>
+</select>
+</div>
+<!-- Action Buttons -->
+<div class="pt-md space-y-sm">
+<button class="w-full h-14 bg-primary text-white font-headline-sm rounded-lg active:scale-[0.98] transition-transform flex items-center justify-center gap-xs" type="submit">
+                            Create Farmer Account
+                        </button>
+<div class="flex items-center gap-xs py-xs">
+<div class="h-px bg-outline-variant flex-grow"></div>
+<span class="text-label-caps text-outline uppercase">OR</span>
+<div class="h-px bg-outline-variant flex-grow"></div>
+</div>
+<button class="w-full h-14 border border-primary bg-secondary/5 text-primary font-headline-sm rounded-lg active:scale-[0.98] transition-transform" type="button">
+                            Login
+                        </button>
+</div>
+</form>
+<!-- Terms -->
+<p class="mt-lg text-[12px] text-center text-on-surface-variant leading-relaxed">
+                    By joining, you agree to our <a class="underline font-bold text-primary" href="#">Terms of Service</a> and <a class="underline font-bold text-primary" href="#">Privacy Policy</a> regarding your agricultural data.
+                </p>
+</div>
+</div>
+</main>
+<!-- Suppressed BottomNavBar for transactional flow as per instructions -->
+<!-- However, providing a footer for navigation context in web view -->
+<footer class="hidden md:block py-md border-t border-stone-200">
+<div class="max-w-5xl mx-auto px-5 flex justify-between text-label-caps text-stone-400">
+<span>© 2024 AGRICONNECT UTILITY SYSTEMS</span>
+<div class="flex gap-md">
+<a class="hover:text-primary transition-colors" href="#">HELP CENTER</a>
+<a class="hover:text-primary transition-colors" href="#">MARKETPLACE</a>
+<a class="hover:text-primary transition-colors" href="#">CONTACT</a>
+</div>
+</div>
+</footer>
+</body></html>
