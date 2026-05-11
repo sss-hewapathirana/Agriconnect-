@@ -1,62 +1,59 @@
-# 🌾 Agriconnect
+# 🌾 Agriconnect — Farm to Market, Simplified
 
-Agriconnect is a digital platform designed to bridge the gap between farmers and sellers (wholesalers/retailers). It provides a streamlined way for farmers to list their products and for sellers to discover and order fresh produce directly from the source.
+Agriconnect is a premium digital marketplace designed to bridge the gap between farmers and wholesalers/retailers in Sri Lanka. It provides a high-end, responsive platform for farmers to manage their inventory and for sellers to source fresh produce directly from the source with verified trust.
 
 ---
 
 ## 🚀 Overview
 
-This project is built to solve the communication and logistics challenges in the agricultural supply chain. By providing a centralized marketplace, Agriconnect empowers farmers to reach more buyers and ensures sellers can find high-quality products efficiently.
+This project streamlines the agricultural supply chain by providing a centralized, role-based platform. Whether you are a farmer in Nuwara Eliya or a wholesaler in Colombo, Agriconnect empowers your business with real-time data, secure transactions, and a robust reputation system.
 
 ---
 
 ## ✨ Features
 
 ### 🔐 1. User Authentication & Authorization
-* **Role-based Access**: Separate flows for **Farmers** and **Sellers**.
-* **Secure Login**: Integrated with Clerk for robust authentication.
-* **Profile Setup**: Collects essential info like name, phone, and location.
+* **Role-based Access**: Custom dashboards and flows for **Farmers** and **Sellers**.
+* **Secure Login**: Powered by **Clerk** for industry-standard authentication.
+* **Onboarding**: Personalized setup collecting location, phone, and role-specific data.
 
-### 👤 2. User Profile Management
-* **Farmer Profiles**: Showcase product categories, listings, and reputation.
-* **Seller Profiles**: Manage ordering history and preferences.
-* **Public Profiles**: Sellers can browse verified farmer profiles.
+### 🌐 2. Sourcing Network (Seller Dashboard)
+* **Discover Farmers**: Browse a curated grid of verified farmers across the country.
+* **Smart Filtering**: Filter by category (Vegetables, Fruits, Spices, etc.) or search by product/location.
+* **Farmer Profiles**: View detailed bios, full product catalogs, and verified reviews from other buyers.
 
 ### 🌾 3. Product Management (Farmers)
-* **Inventory Control**: Add, update, and delete product listings.
-* **Detailed Listings**: Includes categories (Fruits/Vegetables/Animal Products), pricing per unit, and available quantity.
+* **Bento Dashboard**: Modern, card-based stats showing total inventory and active orders.
+* **Inventory Control**: Add, update, and manage products with low-stock alerts.
+* **Detailed Listings**: High-quality product representations with pricing per unit (kg, bundle, etc.).
 
-### 🔍 4. Search & Discovery (Sellers)
-* **Smart Filtering**: Search by category, product name, or location.
-* **Farmer Feed**: A real-time view of registered farmers and their offerings.
+### 🛒 4. Smart Order Management
+* **Sellers**: Place orders with specific quantities and deadlines; track lifecycle (Pending → Accepted/Rejected).
+* **Farmers**: Real-time order notification with "Accept/Reject" workflow to manage farm capacity.
+* **Order History**: Comprehensive log of past procurements for both roles.
 
-### 🛒 5. Order Management
-* **Sellers**: Place orders with specific quantities and deadlines; track status (Pending/Accepted/Rejected).
-* **Farmers**: Receive real-time order requests and manage them via a dedicated dashboard.
-
-### ⭐ 6. Reputation System
-* **Ratings & Reviews**: Sellers can rate farmers (0–5 stars) and leave feedback.
-* **Trust Score**: Average ratings displayed on farmer profiles to build community trust.
+### ⭐ 5. Reputation & Review System
+* **Verified Reviews**: Only sellers who have successfully transacted can rate farmers.
+* **Star Ratings**: Interactive rating system (0–5 stars) with qualitative feedback.
+* **Trust Badges**: Visual indicators for verified sellers and highly-rated farmers.
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- **Framework**: React 19 (via Vite)
-- **Styling**: Vanilla CSS (Modern design patterns)
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **Auth**: Clerk React
+- **Framework**: React 19 (Vite 8)
+- **Styling**: Tailwind CSS 4.0 (Modern CSS-first approach)
+- **Typography**: Manrope (Headings) & Inter (Body)
+- **Animations**: Framer Motion & Lucide React Icons
+- **Auth**: Clerk React SDK
 
 ### Backend
-- **Runtime**: Node.js
-- **Framework**: Express 5
-- **Language**: TypeScript
-- **Database**: Neon PostgreSQL (Serverless)
-- **ORM**: Drizzle ORM
-- **Auth**: Clerk Express / Webhooks (Svix)
-- **Validation**: Zod
+- **Runtime**: Node.js & TypeScript
+- **Framework**: Express 5.2 (High performance)
+- **Database**: Neon PostgreSQL (Serverless / AWS East)
+- **ORM**: Drizzle ORM (Type-safe migrations)
+- **Validation**: Zod (Runtime type safety)
 
 ---
 
@@ -64,17 +61,18 @@ This project is built to solve the communication and logistics challenges in the
 
 ```text
 Agriconnect/
-├── client/                # React Frontend (Vite)
+├── client/                # React Frontend (Vite + Tailwind 4)
 │   ├── src/
-│   │   ├── components/    # Reusable UI components
-│   │   ├── pages/         # Application views
-│   │   └── context/       # State management
-├── server/                # Express Backend (TypeScript)
+│   │   ├── components/    # UI Kit (StarRating, Navbar, BottomNav, etc.)
+│   │   ├── pages/         # Role-based views (Farmer/Seller/Onboarding)
+│   │   ├── contexts/      # Auth & Theme (Dark/Light) state
+│   │   └── utils/         # Axios API interceptors
+├── server/                # Express Backend (TypeScript + Drizzle)
 │   ├── src/
-│   │   ├── controllers/   # Business logic
-│   │   ├── db/            # Database schema & config
-│   │   ├── routes/        # API endpoints
-│   │   └── middleware/    # Auth & validation
+│   │   ├── controllers/   # Business logic & Route handlers
+│   │   ├── db/            # Schema definitions & Drizzle config
+│   │   ├── routes/        # API route definitions
+│   │   └── middleware/    # Auth & Zod validation logic
 └── README.md              # Project documentation
 ```
 
@@ -82,41 +80,46 @@ Agriconnect/
 
 ## ⚙️ Getting Started
 
-### Prerequisites
-- Node.js (v18+)
-- Clerk Account (for Auth)
-- Neon PostgreSQL instance
-
 ### Installation
 
-1. **Clone the repository**
+1. **Clone & Install**
    ```bash
    git clone https://github.com/your-username/Agriconnect.git
    cd Agriconnect
+   npm install  # Install root deps (if any)
    ```
 
 2. **Setup Backend**
    ```bash
    cd server
    npm install
-   # Create .env and add:
-   # DATABASE_URL=...
-   # CLERK_PUBLISHABLE_KEY=...
-   # CLERK_SECRET_KEY=...
-   # CLERK_WEBHOOK_SECRET=...
+   # Create .env with DATABASE_URL and CLERK keys
    npm run db:generate
    npm run db:migrate
-   npm run dev
+   npm run dev  # Starts on port 5000
    ```
 
 3. **Setup Frontend**
    ```bash
    cd ../client
    npm install
-   # Create .env and add:
-   # VITE_CLERK_PUBLISHABLE_KEY=...
-   npm run dev
+   # Create .env with VITE_CLERK_PUBLISHABLE_KEY
+   npm run dev  # Starts on port 5173
    ```
+
+---
+
+## 🛣️ API Endpoints
+
+| Category | Endpoint | Description |
+| :--- | :--- | :--- |
+| **Auth** | `POST /api/users` | Onboard user after Clerk signup |
+| **Profile** | `GET /api/users/me` | Fetch personal profile data |
+| **Farmers** | `GET /api/users/farmers` | Public list of verified farmers |
+| **Products** | `GET /api/products` | Browse all products (Public) |
+| **Inventory** | `GET /api/products/mine`| Get your farm's products (Farmer) |
+| **Orders** | `POST /api/orders` | Place a new order (Seller) |
+| **History** | `GET /api/orders/mine` | View your order history |
 
 ---
 
@@ -172,47 +175,14 @@ erDiagram
 
 ---
 
-## 🛣️ API Endpoints & Documentation
-
-Detailed API documentation is available via Postman:
-👉 **[Agriconnect API Documentation](https://documenter.getpostman.com/view/52356358/2sBXqKnz7k)**
-
-### 👤 Users
-- `GET /api/users/profile` - Get current user profile
-- `POST /api/users/register` - Register/Update user profile
-- `GET /api/users/farmers` - List all registered farmers
-
-### 🌾 Products
-- `GET /api/products` - List all products (with filters)
-- `POST /api/products` - Add a new product (Farmer only)
-- `PUT /api/products/:id` - Update product details
-- `DELETE /api/products/:id` - Delete a product
-
-### 🛒 Orders
-- `GET /api/orders` - List orders for the current user
-- `POST /api/orders` - Place a new order (Seller only)
-- `PATCH /api/orders/:id/status` - Update order status (Farmer only)
-
-### ⭐ Reviews
-- `POST /api/reviews` - Rate a farmer
-- `GET /api/reviews/:farmerId` - Get reviews for a farmer
-
-
----
-
-## 🧠 Future Enhancements (Phase 2)
-- 📢 **Real-time Notifications**: Notify farmers of new orders and sellers of status updates.
-- 💬 **In-app Chat**: Direct communication between buyers and sellers.
-- 🌍 **Localization**: Support for Sinhala and Tamil languages.
-- 📦 **Offline Support**: Optimized for rural areas with limited connectivity.
-
----
-
-## 👥 Development Team
-- **Backend Developer**: Omisha Pasandul Wickramaarachchi
-- **Frontend Developer**: Suvindu Supun Hewapathirana
+## 🎨 UI Aesthetics
+Agriconnect uses a **Premium Modern Design** philosophy:
+- **Glassmorphism**: Subtle blurs and translucent card effects.
+- **Micro-interactions**: Smooth hover transitions and button scaling.
+- **Dark Mode**: Fully optimized dark mode for late-night farm management.
+- **Responsive**: Mobile-first design with a dedicated `BottomNav` for smartphones.
 
 ---
 
 ## ⚖️ License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License — © 2026 Agriconnect Team.
