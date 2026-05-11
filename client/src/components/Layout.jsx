@@ -1,20 +1,20 @@
-import React from 'react';
+import { useLocation } from 'react-router-dom';
+import { useUser } from '@clerk/clerk-react';
 import Navbar from './Navbar';
+import BottomNav from './BottomNav';
 
-const Layout = ({ children }) => {
+export default function Layout({ children }) {
+  const { isSignedIn } = useUser();
+  const location = useLocation();
+  const isDashboard = location.pathname.startsWith('/dashboard');
+
   return (
-    <div className="layout">
+    <div className="min-h-screen bg-[#f8faf9] dark:bg-[#0d1117] transition-colors duration-300">
       <Navbar />
-      <main className="main-content">
+      <main className={isDashboard && isSignedIn ? 'page-with-nav' : ''}>
         {children}
       </main>
-      <footer className="footer">
-        <div className="footer-container">
-          <p>&copy; {new Date().getFullYear()} Agriconnect. Bridging the gap between farmers and sellers.</p>
-        </div>
-      </footer>
+      {isDashboard && isSignedIn && <BottomNav />}
     </div>
   );
-};
-
-export default Layout;
+}
